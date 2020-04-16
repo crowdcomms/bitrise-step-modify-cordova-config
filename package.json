@@ -1,0 +1,24 @@
+{
+  "name": "bitrise-step-modify-cordova-config",
+  "version": "1.0.0",
+  "description": "Bitrise step to modify corodova config",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^5.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crowdcomms/bitrise-step-modify-cordova-config.git"
+  },
+  "author": "Daniel Douglas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crowdcomms/bitrise-step-modify-cordova-config/issues"
+  },
+  "homepage": "https://github.com/crowdcomms/bitrise-step-modify-cordova-config#readme"
+}

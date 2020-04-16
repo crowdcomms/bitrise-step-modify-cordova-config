@@ -1,0 +1,100 @@
+#
+# A couple of useful guides & docs:
+#
+# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
+# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
+# - Bitrise docs: http://devcenter.bitrise.io/
+# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
+
+title: |-
+  modify-cordova-config
+summary: |
+  Update some of the cordova config.xml tags
+description: |
+  Allows you to modify the some of the cordova config.xml tags
+website: https://github.com/crowdcomms/bitrise-step-modify-cordova-config
+source_code_url: https://github.com/crowdcomms/bitrise-step-modify-cordova-config
+support_url: https://github.com/crowdcomms/bitrise-step-modify-cordova-config/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+project_type_tags:
+  - cordova
+  - ionic
+
+# Type tags are used for categorizing steps, for easier step discovery in Step Libraries.
+# You can find more information about type tags in the Step Development Guideline:
+# https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+type_tags:
+  - build
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+deps:
+  brew:
+  - name: git
+  - name: wget
+  apt_get:
+  - name: git
+  - name: wget
+
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+
+inputs:
+  - name: $CORDOVA_NAME
+    opts:
+      title: Cordova application name
+      summary: Modify the element `<name></name>` in the config.xml file
+      is_expand: true
+      is_required: false
+  - id: $CORDOVA_ID
+    opts:
+      title: Cordova ID
+      summary: Modify the attribute `id` the config.xml file
+      is_expand: true
+      is_required: false
+  - version: $CORDOVA_VERSION
+    opts:
+      title: Cordova version
+      summary: Modify the attribute `version` the config.xml file
+      is_expand: true
+      is_required: false
+  - android_version_code: $CORDOVA_ANDROID_VERSION_CODE
+    opts:
+      title: Android version code
+      summary: Modify the attribute `android-versionCode` in the config.xml file
+      is_expand: true
+      is_required: false
+  # - android_package_name: $CORDOVA_ANDROID_PACKAGE_NAME
+  #   opts:
+  #     title: Android package name
+  #     summary: Modify the attribute `android-packageName` in the config.xml file
+  #     is_expand: true
+  #     is_required: false
+  - ios_bundle_version: $CORDOVA_IOS_BUNDLE_VERSION
+    opts:
+      title: iOS bundle version
+      summary: Modify the attribute `ios-CFBundleVersion` in the config.xml file
+      is_expand: true
+      is_required: false
+  - ios_bundle_identifier: $CORDOVA_IOS_BUNDLE_IDENTIFIER
+    opts:
+      title: iOS bundle identifier
+      summary: Modify the attribute `ios-CFBundleIdentifier` in the config.xml file
+      is_expand: true
+      is_required: false
+  - path_to_config: './_tmp/config.xml'
+    opts:
+      title: Cordova config.xml file location
+      summary: Define the location of the config.xml files. Defaults to `./config.xml`
+      is_expand: true
+      is_required: false
