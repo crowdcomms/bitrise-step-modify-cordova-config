@@ -40,7 +40,12 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - example_step_input: Example Step Input's value
+        - id: com.crowdcomms.hello
+        - name: Hello World
+        - version: 1.9.9
+        - android_version_code: 99
+        - ios_bundle_version: 88
+        - path_to_config: ./_tmp/config.xml
     - script:
         inputs:
         - content: |
