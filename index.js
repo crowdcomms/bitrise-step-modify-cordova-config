@@ -26,7 +26,7 @@ commander
     const config = new Config(commander.pathToConfig);
 
     console.log('Name' + commander.bundleName);
-    if ('Bundle: ' + `${commander.bundleName}`) {
+    if (commander.bundleName) {
       config.setName(`${commander.bundleName}`);
     }
     
