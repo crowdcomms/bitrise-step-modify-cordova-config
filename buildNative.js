@@ -1,6 +1,7 @@
 const fs = require('fs');
 const xml2js = require('xml2js');
 const commander = require('commander');
+const path = require('path');
 commander
     .version('1.0.0', '-v, --version')
     .description('Create the app bundle')
@@ -21,15 +22,16 @@ commander
 
 function writeConfigXml(urlName) {
     try {
-        // const SOURCE_PATH = process.env['BITRISE_SOURCE_DIR'];
-        console.log('Path: ' + commander.pathToConfig);
-        const xml = fs.readFileSync(commander.pathToConfig, 'utf8');
-        console.log('XML: %o', xml);
+
+      const configFilePath = commander.pathToConfig || 'config.xml'
+      const sourcePath = process.env['BITRISE_SOURCE_DIR'] || './tmp'
+
+      const pathToConfig = path.join(sourcePath, configFilePath);
+
+        const xml = fs.readFileSync(pathToConfig, 'utf8');
 
         xml2js.parseString(xml, (err, obj) => {
-          console.log(commander.bundleId)
             if (commander.bundleId) {
-              console.log(obj.widget.$.id);
                 obj.widget.$.id = commander.bundleId;
             }
 
@@ -62,9 +64,8 @@ function writeConfigXml(urlName) {
             var xml = builder.buildObject(obj);
 
             console.log(`Updating config.xml file...`);
-            fs.writeFile(commander.pathToConfig, xml, function () {
+            fs.writeFile(pathToConfig, xml, function () {
                 console.log('Successfully updated config.xml');
-                console.log('XML 2: %o', xml);
             });
         });
     } catch (err) {
