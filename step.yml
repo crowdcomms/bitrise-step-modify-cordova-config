@@ -50,32 +50,32 @@ toolkit:
 inputs:
   - name: $CORDOVA_NAME
     opts:
-      title: Cordova application name
-      summary: Modify the element `<name></name>` in the config.xml file
+      title: App name
+      summary: This is the name of the app as you would like it to appear in the store
       is_expand: true
       is_required: false
   - id: $CORDOVA_ID
     opts:
-      title: Cordova ID
-      summary: Modify the attribute `id` the config.xml file
+      title: Package identifier
+      summary: This is the bundle id (eg com.crowdcomms.myapp)
       is_expand: true
       is_required: false
   - version: $CORDOVA_VERSION
     opts:
-      title: Cordova version
-      summary: Modify the attribute `version` the config.xml file
+      title: Store version number
+      summary: The new store version number (eg 1.0.0)
       is_expand: true
       is_required: false
   - android_version_code: $CORDOVA_ANDROID_VERSION_CODE
     opts:
       title: Android version code
-      summary: Modify the attribute `android-versionCode` in the config.xml file
+      summary: This is the android version (eg 19)
       is_expand: true
       is_required: false
   - ios_bundle_version: $CORDOVA_IOS_BUNDLE_VERSION
     opts:
-      title: iOS bundle version
-      summary: Modify the attribute `ios-CFBundleVersion` in the config.xml file
+      title: IOS build number
+      summary: The ios build number (must be incremented for each subsequent build)
       is_expand: true
       is_required: false
   - path_to_config: $PATH_TO_CONFIG
