@@ -40,11 +40,11 @@ workflows:
           file if you would not specify another value.
         run_if: true
         inputs:
-        - id: com.crowdcomms.hello
-        - name: Hello World
-        - version: 1.9.9
-        - android_version_code: 99
-        - ios_bundle_version: 88
+        - id: com.crowdcomms.test
+        - name: Test App
+        - version: 1.0.0
+        - android_version_code: 1
+        - ios_bundle_version: 1
         - path_to_config:
     - script:
         inputs:
