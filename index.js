@@ -1,5 +1,6 @@
 const commander = require('commander');
 const Config = require('cordova-config');
+const path = require('path');
 commander
     .version('1.0.0', '-v, --version')
     .description('Create the app bundle')
@@ -12,7 +13,10 @@ commander
     .option('--path-to-config <pathToConfig>', 'Path to config.xml', 'config.xml')
     .parse(process.argv);
 
-    const config = new Config(commander.pathToConfig);
+    const configFilePath = commander.pathToConfig || 'config.xml'
+    const sourcePath = process.env['BITRISE_SOURCE_DIR'] || './tmp'
+
+    const config = new Config(path.join(sourcePath, configFilePath));
 
     if (commander.bundleName) {
       config.setName(`${commander.bundleName}`);
@@ -48,12 +52,3 @@ commander
     
     // Write the config file
     config.writeSync();
-
-    // Dubug logs
-
-    // console.log('Config: %o', Config);
-    // console.log('Name ' + commander.bundleName);
-    // console.log('bundleId ' + commander.bundleId);
-    // console.log('iosVersion ' + commander.iosVersion);
-    // console.log('androidVersion ' + commander.androidVersion);
-    // console.log('iosBuildNumber ' + commander.iosBuildNumber);

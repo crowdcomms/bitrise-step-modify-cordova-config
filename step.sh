@@ -4,8 +4,8 @@ set -e
 step_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
 
 (cd $step_dir && npm install --quiet)
-# (cd $step_dir && node index.js --bundle-id="${id}" --bundle-name="${name}" --ios-version="${version}" --ios-build-number="${ios_bundle_version}" --android-version="${android_version_code}" --path-to-config="${path_to_config}")
-(cd $step_dir && node buildNative.js --bundle-id="${id}" --bundle-name="${name}" --ios-version="${version}" --ios-build-number="${ios_bundle_version}" --android-version="${android_version_code}" --path-to-config="${path_to_config}")
+(cd $step_dir && node index.js --bundle-id="${id}" --bundle-name="${name}" --ios-version="${version}" --ios-build-number="${ios_bundle_version}" --android-version="${android_version_code}" --path-to-config="${path_to_config}")
+# (cd $step_dir && node buildNative.js --bundle-id="${id}" --bundle-name="${name}" --ios-version="${version}" --ios-build-number="${ios_bundle_version}" --android-version="${android_version_code}" --path-to-config="${path_to_config}")
 
 exit $?
 
