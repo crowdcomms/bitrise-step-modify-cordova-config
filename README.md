@@ -1,6 +1,6 @@
 # modify-cordova-config
 
-Allows you to modify the some of the cordova config.xml tags
+Allows you to modify the name tag, widget id attribute, widget version attribute, ios-CFBundleVersion atribute (ios build number) and the widget android-versionCode of the cordova config.xml file.  It will also set the ionic deeplink plugin url scheme to the last part of the widget id (bundle id).
 
 
 ## How to use this Step
