@@ -72,27 +72,27 @@ inputs:
       summary: Modify the attribute `android-versionCode` in the config.xml file
       is_expand: true
       is_required: false
-  # - android_package_name: $CORDOVA_ANDROID_PACKAGE_NAME
-  #   opts:
-  #     title: Android package name
-  #     summary: Modify the attribute `android-packageName` in the config.xml file
-  #     is_expand: true
-  #     is_required: false
   - ios_bundle_version: $CORDOVA_IOS_BUNDLE_VERSION
     opts:
       title: iOS bundle version
       summary: Modify the attribute `ios-CFBundleVersion` in the config.xml file
       is_expand: true
       is_required: false
-  # - ios_bundle_identifier: $CORDOVA_IOS_BUNDLE_IDENTIFIER
-  #   opts:
-  #     title: iOS bundle identifier
-  #     summary: Modify the attribute `ios-CFBundleIdentifier` in the config.xml file
-  #     is_expand: true
-  #     is_required: false
   - path_to_config: $PATH_TO_CONFIG
     opts:
       title: Cordova config.xml file location
       summary: Define the location of the config.xml files. Defaults to `./config.xml`
       is_expand: true
       is_required: false
+# - ios_bundle_identifier: $CORDOVA_IOS_BUNDLE_IDENTIFIER
+#   opts:
+#     title: iOS bundle identifier
+#     summary: Modify the attribute `ios-CFBundleIdentifier` in the config.xml file
+#     is_expand: true
+#     is_required: false
+    # - android_package_name: $CORDOVA_ANDROID_PACKAGE_NAME
+#   opts:
+#     title: Android package name
+#     summary: Modify the attribute `android-packageName` in the config.xml file
+#     is_expand: true
+#     is_required: false

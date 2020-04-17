@@ -62,8 +62,9 @@ function writeConfigXml(urlName) {
             var xml = builder.buildObject(obj);
 
             console.log(`Updating config.xml file...`);
-            fs.writeFile('./config.xml', xml, function () {
+            fs.writeFile(commander.pathToConfig, xml, function () {
                 console.log('Successfully updated config.xml');
+                console.log('XML 2: %o', xml);
             });
         });
     } catch (err) {
